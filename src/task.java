@@ -10,6 +10,7 @@ public class task {
         this.description = description;
         status = "To-do";
         this.createdAt = createdAt;
+        updatedAt = "-/-/-";
     }
 
     public void setId(int id) {
@@ -50,5 +51,10 @@ public class task {
 
     public String getupdatedAt() {
         return updatedAt;
+    }
+
+    public void printAllFields() {
+        IO.println(this.getId() + "\t|\t" + this.getDesc() + "\t|\t" + this.getStatus() + "\t|\t"
+                + this.getCreatedAt() + this.getupdatedAt());
     }
 }
