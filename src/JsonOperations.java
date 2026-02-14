@@ -17,7 +17,7 @@ public class JsonOperations {
 
     public static List<task> loadList() throws StreamReadException, DatabindException, IOException {
         if (!file.exists()) {
-            return new ArrayList<>();
+            return new ArrayList<task>();
         }
         List<task> tk2 = object1.readValue(file, ref);
         return tk2;

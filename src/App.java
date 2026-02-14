@@ -19,6 +19,7 @@ public class App {
         do {
             IO.println("\nEnter your choice:");
             String choice = sc.nextLine();
+            apo.bindList();
             switch (choice) {
                 case "1":
                     IO.println("\nEnter the name for the task:");

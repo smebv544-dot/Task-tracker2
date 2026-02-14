@@ -10,26 +10,22 @@ public class Operations {
         tasklist = JsonOperations.loadList();
     }
 
-    public int getSize() throws IOException {
-        bindList();
+    public int getSize() {
         return tasklist.size();
     }
 
-    public List<task> retrieveList() throws IOException {
-        bindList();
+    public List<task> retrieveList() {
         return tasklist;
     }
 
     public void addTask(int id, String desc, String create)
             throws IOException {
-        bindList();
         tasklist.add(new task(id, desc, create));
         JsonOperations.saveList(tasklist);
     }
 
     public void updateTask(int id, String desc, String update)
             throws IOException {
-        bindList();
         task tc = tasklist.get(id);
         tc.setDesc(desc);
         tc.setupdatedAt(update);
@@ -37,27 +33,23 @@ public class Operations {
     }
 
     public void deleteTask(int id) throws IOException {
-        bindList();
         tasklist.remove(id);
         JsonOperations.saveList(tasklist);
     }
 
     public void markDone(int id) throws IOException {
-        bindList();
         task tc1 = tasklist.get(id);
         tc1.setStatus("Done");
         JsonOperations.saveList(tasklist);
     }
 
     public void markInProgress(int id) throws IOException {
-        bindList();
         task tc2 = tasklist.get(id);
         tc2.setStatus("In-Progress");
         JsonOperations.saveList(tasklist);
     }
 
     public void listAllTasks() throws IOException {
-        bindList();
         Iterator<task> it = tasklist.iterator();
         while (it.hasNext()) {
             task itk = it.next();
@@ -67,7 +59,6 @@ public class Operations {
     }
 
     public void listDoneTasks() throws IOException {
-        bindList();
         Iterator<task> it = tasklist.iterator();
         while (it.hasNext()) {
             task itk = it.next();
@@ -79,7 +70,6 @@ public class Operations {
     }
 
     public void listInProgressTasks() throws IOException {
-        bindList();
         Iterator<task> it = tasklist.iterator();
         while (it.hasNext()) {
             task itk = it.next();
@@ -91,7 +81,6 @@ public class Operations {
     }
 
     public void listNotDoneTasks() throws IOException {
-        bindList();
         Iterator<task> it = tasklist.iterator();
         while (it.hasNext()) {
             task itk = it.next();
