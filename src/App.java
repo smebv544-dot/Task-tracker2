@@ -1,3 +1,4 @@
+import java.util.List;
 import java.util.Scanner;
 
 public class App {
@@ -5,17 +6,20 @@ public class App {
         Scanner sc = new Scanner(System.in);
         Operations apo = new Operations();
         String ch = "no";
+        List<task> ttk = JsonOperations.loadList();
 
-        // abc dfafasf sdgsdgsg
-        IO.println("No tasks in list. Please add a task.\nEnter a task:");
-        String ftk = sc.nextLine();
-        apo.addTask(0, ftk, apo.passDateString());
-        IO.println("");
+        if (ttk.isEmpty()) {
+            IO.println("No tasks in list. Please add a task.\nEnter a task:");
+            String ftk = sc.nextLine();
+            apo.addTask(0, ftk, apo.passDateString());
+            IO.println("");
+        }
 
         apo.listOpertaions();
         do {
             IO.println("\nEnter your choice:");
             String choice = sc.nextLine();
+            apo.bindList();
             switch (choice) {
                 case "1":
                     IO.println("\nEnter the name for the task:");
